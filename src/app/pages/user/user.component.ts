@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from '../../pages/login/login.component';
 
 @Component({
     selector: 'user-cmp',
@@ -8,5 +9,6 @@ import { Component, OnInit } from '@angular/core';
 
 export class UserComponent implements OnInit{
     ngOnInit(){
+
     }
 }
