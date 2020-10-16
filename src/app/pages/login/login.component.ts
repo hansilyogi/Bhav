@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   onpost(dataa) {
     console.log(dataa);
     console.log("happend!!");
-      this.httpClient.post('http://blogproject-33.herokuapp.com/api/login', 
+      this.httpClient.post('https://blogproject-33.herokuapp.com/api/login', 
       dataa)
       .subscribe(responsedata => {
       this.loggedin= true;
