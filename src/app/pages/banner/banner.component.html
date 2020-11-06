@@ -1,0 +1,67 @@
+<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
+                        <h2 style="color: lightseagreen;"><strong>Add Banner</strong></h2>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="panel-body">
+                        <div class="xs-mt-10 xs-mb-10">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form class="form-horizontal" #form1 ="ngForm" (ngSubmit) = "saveBanner(form1)">
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="title">TITLE</label>
+                                                <div class="col-sm-9">
+                                                    <input id="title" name="title" [(ngModel)]="title" class="form-control input-pill" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="type">BANNER TYPE</label>
+                                                <div class="col-sm-9">
+                                                    <select id="type" class="form-control" [(ngModel)]="type" name="type">
+                                                        <option value="top">TOP</option>
+                                                        <option value="bottom">BOTTOM</option>
+                                                        <option value="offer">OFFER</option>
+                                                      </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="img_1">BANNER-IMAGE</label>
+                                                <div class="col-sm-9">
+                                                    <input id="img_1" name="img_1" [(ngModel)]="img_1" class="" 
+                                                    type="file" accept="image/*">
+                                                    <span class="file-cta">
+                                                        <span class="file-icon">
+                                                        <i class="fa fa-upload"></i>
+                                                        </span>
+                                                        <span class="file-label">
+                                                            Choose a file…
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button class="btn btn-danger" type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

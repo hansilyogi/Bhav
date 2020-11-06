@@ -12,6 +12,11 @@ import { TableComponent }           from '../../pages/table/table.component';
 import { FormsComponent }           from '../../pages/forms/forms.component';
 import { RegisterComponent}         from '../../pages/register/register.component';
 import { LoginComponent }           from '../../pages/login/login.component';
+import { NewsComponent }            from '../../pages/news/news.component';
+import { CategoryComponent }        from '../../pages/category/category.component';
+import { OffersComponent }          from '../../pages/offers/offers.component';
+import { BannerComponent }          from '../../pages/banner/banner.component';
+import { EventsComponent }          from '../../pages/events/events.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -30,6 +35,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsComponent,
     LoginComponent,
     RegisterComponent,
+    NewsComponent,
+    CategoryComponent,
+    OffersComponent,
+    BannerComponent,
+    EventsComponent,
   ]
 })
 

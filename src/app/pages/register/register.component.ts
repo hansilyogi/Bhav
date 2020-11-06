@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   onsub(data) {
     console.log(data);
     console.log(data.name);
-    this.httpClient.post('https://blogproject-33.herokuapp.com/api/registration',
+    this.httpClient.post('http://15.207.46.236/api/registration',
       data)
       .subscribe(Response => {
         alert('registration successfull!!');

@@ -1,6 +1,9 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-danger pb-8 pt-2 pt-md-5">
   <div class="container-fluid">
     <div class="header-body">
+      <section class="content-header">
+        <h3>Directory Listing</h3>
+    </section>
     </div>
   </div>
 </div>
@@ -27,13 +30,13 @@
             </thead>
             <tbody>
               <tr *ngFor="let e of lis">
-                <td>{{ e.name }}</td>
-                <td>{{ e.date_of_birth }}</td>
-                <td>{{ e.gender }}</td>
-                <td>{{ e.address }}</td>
-                <td>{{ e.spouse_name }}</td>
-                <td>{{ e.spouse_birth_date }}</td>
-                <td>{{ e.number_of_child }}</td>
+                <td>{{ e[0].name }}</td>
+                <td>{{ e[0].date_of_birth }}</td>
+                <td>{{ e[0].gender }}</td>
+                <td>{{ e[0].address }}</td>
+                <td>{{ e[0].spouse_name }}</td>
+                <td>{{ e[0].spouse_birth_date }}</td>
+                <td>{{ e[0].number_of_child }}</td>
               </tr>
             </tbody>
           </table>
@@ -87,12 +90,12 @@
             </thead>
             <tbody>
               <tr *ngFor='let e of lis'>
-                <td>{{e.company_name}}</td>
-                <td>{{e.keyword}}</td>
-                <td>{{e.address}}</td>
-                <td>{{e.experience}}</td>
-                <td></td>
-                <td></td>
+                <td>{{e[0].company_name}}</td>
+                <td>{{e[0].business_category}}</td>
+                <td>{{e[0].company_address}}</td>
+                <td>{{e[0].about_buseness}}</td>
+                <td>{{e[0].keyword}}</td>
+                <td>{{e[0].experience}}</td>
               </tr>
             </tbody>
           </table>

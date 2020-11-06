@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
-//   styleUrls: ['./login.component.scss']
+  // styleUrls: ['login.component.scss']
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
@@ -18,12 +18,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private httpClient : HttpClient,private router: Router) {}
 
   onpost(dataa) {
-      this.httpClient.post('https://blogproject-33.herokuapp.com/api/login', 
+      this.httpClient.post('http://15.207.46.236/api/login', 
       dataa)
       .subscribe(responsedata => {
       this.data_1=responsedata;
+      console.log(this.data_1);
       this.loggedin= true;
-      this.succ = responsedata["isSuccess"];
+      this.succ = responsedata["IsSuccess"];
       if(this.succ){
           alert('Login Successfull!!');
           this.router.navigateByUrl('/dashboard');

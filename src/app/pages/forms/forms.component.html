@@ -1,18 +1,10 @@
-<div class="header bg-gradient-danger pb-3 pt-5 pt-md-8">
-    <div class="container-fluid">
-      <div class="header-body">
-      </div>
-    </div>
-</div>
-<br>
-<br>
 <div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
     <div class="container-fluid">
       <div class="row row-stat">
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
-              <h2><strong>Peronal Information</strong></h2>
+              <h2 style="color: lightseagreen;"><strong>Peronal Information</strong></h2>
             </div>
             <br>
             <br>
@@ -31,13 +23,38 @@
                       </div>
                       <div class="form-group"> 
                         <div class="row">
-                          <label class="col-sm-3 control-label" for="img">IMAGE</label>
+                          <label class="col-sm-3 control-label" for="mem_type">MEMBER TYPE</label>
                           <div class="col-sm-9">
-                            <input id="img" name="img" [(ngModel)]="img" class="form-control input-pill" 
-                            type="file" accept="image/*" placeholder="Enter Image">
+                            <select 
+                              class="form-control"
+                              id="mem_type"
+                              ng-model="mem_type">
+                              <option value="" disabled selected> Please select Category</option>
+                              <option *ngFor="let x of lis" value="{{x}}">{{x}}</option>
+                            </select>
                           </div>
                         </div>
                       </div>
+                      <br>
+                      <div class="form-group"> 
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="img">IMAGE</label>
+                          <div class="col-sm-9">
+                            <input id="img" name="img" [(ngModel)]="img" class="" 
+                            type="file" accept="image/*">
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fa fa-upload"></i>
+                                <!-- <fa-icon [icon]="['fas', 'upload']"></fa-icon> -->
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="date_of_birth">DATE OF BIRTH</label>
@@ -46,6 +63,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="gender">GENDER</label>
@@ -58,6 +76,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="address">ADDRESS</label>
@@ -67,6 +86,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="spouse_name">SPOUSE NAME</label>
@@ -76,6 +96,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="spouse_birth_date">SPOUSE D.O.B</label>
@@ -84,6 +105,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="number_of_child">NO. OF CHILD</label>
@@ -92,6 +114,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="company_name">Company Name</label>
@@ -100,6 +123,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="business_category">Business Category</label>
@@ -108,6 +132,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="company_address">Company Address</label>
@@ -116,6 +141,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="about_business">About Business</label>
@@ -124,6 +150,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="keyword">keywords</label>
@@ -132,6 +159,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="form-group">
                         <div class="row">
                           <label class="col-sm-3 control-label" for="experience">Experience</label>
@@ -140,6 +168,7 @@
                           </div>
                         </div>
                       </div>
+                      <br>
                       <div class="text-center">
                         <button class="btn btn-danger" type="submit">Submit</button>
                       </div>
@@ -155,3 +184,5 @@
 </div>
 <br>
 <br>
+
+

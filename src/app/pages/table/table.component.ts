@@ -8,7 +8,7 @@ declare interface TableData {
 
 @Component({
     selector: 'table-cmp',
-    moduleId: module.id,
+    // moduleId: module.id,
     templateUrl: 'table.component.html'
 })
 
@@ -21,8 +21,7 @@ export class TableComponent implements OnInit{
   
   
     ngOnInit() {
-      console.log('Hello sirr!! ');
-      this.http.get('https://blogproject-33.herokuapp.com/api/person/') 
+      this.http.get('http://15.207.46.236/api/person/') 
       .subscribe(Response => { 
         console.log(Response);
         this.li=Response;
