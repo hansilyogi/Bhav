@@ -9,16 +9,14 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard',     title: 'Dashboard',         icon:'ni-tv-2 text-primary',          class: '' },
-    { path: '/user',          title: 'User Profile',      icon:'ni-single-02 text-yellow',      class: '' },
-    { path: '/table',         title: 'Table List',        icon:'ni-bullet-list-67 text-red',    class: '' },
-    { path: '/register',      title: 'Register',          icon:'ni-key-25 text-info',           class: '' },
-    { path: '/forms',         title: 'Form',              icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/news',          title: 'Add News',          icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/category',      title: 'Add Category',      icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/offers',        title: 'Add Offers',        icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/banner',        title: 'Add Banners',       icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/events',        title: 'Add Event',       icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/dashboard',           title: 'Dashboard',           icon:'ni-tv-2 text-primary',          class: '' },
+    { path: '/register',            title: 'Register',            icon:'ni-key-25 text-info',           class: '' },
+    { path: '/banner',              title: 'Products',             icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/city',                title: 'City',                icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/state',               title: 'State',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/table',               title: 'Customers',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/market',               title: 'Market',               icon:'ni-circle-08 text-pink',        class: '' },
+    
 ];
 
 @Component({

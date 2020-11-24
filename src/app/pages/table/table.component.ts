@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare interface TableData {
     headerRow: string[];
@@ -14,25 +15,35 @@ declare interface TableData {
 
 export class TableComponent implements OnInit{
     li:any; 
-    lis=[];
+    
+    lis = [];
+
     xhr = new XMLHttpRequest();
-  
-    constructor(private http : HttpClient) {}
-  
+    
+    constructor(private httpClient : HttpClient,private router: Router) {}
   
     ngOnInit() {
-      this.http.get('http://15.207.46.236/api/person/') 
+      this.httpClient.post('https://bhav003.herokuapp.com/api/customer/getUsers',null) 
       .subscribe(Response => { 
-        console.log(Response);
         this.li=Response;
-        this.lis=this.li.list;
+        console.log(this.li);
+        // this.lis=this.li.list;
         var res = [];
         for (var x in this.li){
           this.li.hasOwnProperty(x) && res.push(this.li[x])
         }
-        this.lis = res[1];
-        console.log(this.lis);
-      }); 
+        this.lis = res[2];
+      });
+
+    }
+  
+    editt(){
+      console.log("asd");
+      this.router.navigateByUrl('/forms');
+    }
+
+    dellete(){
+      alert("Your account is Deleted.!! ");
     }
   
   }

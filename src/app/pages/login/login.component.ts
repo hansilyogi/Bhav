@@ -5,40 +5,31 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
-  // styleUrls: ['login.component.scss']
+  styleUrls: ['login.component.css']
 })
 
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent {
   li:any; 
   lis=[];
   succ: any;
   data_1 :any;
   loggedin = false;
+  res_data;
+  UserName:string;
+  Password:string;
 
   constructor(private httpClient : HttpClient,private router: Router) {}
 
-  onpost(dataa) {
-      this.httpClient.post('http://15.207.46.236/api/login', 
-      dataa)
-      .subscribe(responsedata => {
-      this.data_1=responsedata;
-      console.log(this.data_1);
-      this.loggedin= true;
-      this.succ = responsedata["IsSuccess"];
-      if(this.succ){
-          alert('Login Successfull!!');
-          this.router.navigateByUrl('/dashboard');
-        }
-      else{
-          alert('Enter valid number to Login');
-        }
-    });
+  onlog(person:Person) {
+      this.httpClient.post('https://bhav003.herokuapp.com/api/admin/adminLogin',person)
+      .subscribe(Response => {
+        console.log(Response);
+        this.router.navigateByUrl('/dashboard');
+      })
   }
 
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-  }
-
+}
+export interface Person {
+  UserName:string;
+  Password:string;
 }

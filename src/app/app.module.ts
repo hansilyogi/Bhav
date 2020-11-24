@@ -12,16 +12,17 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
-
+import { MomentModule } from 'ngx-moment';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserAnimationsModule,
+    MomentModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),

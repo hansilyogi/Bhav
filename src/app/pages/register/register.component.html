@@ -1,60 +1,178 @@
-<div class="container mt--8 pb-5">
-   
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-8">
-        <div class="card bg-danger shadow border-0">
-          <div class="card-header bg-primary pb-2">
-            <h3 align="center">Register Here</h3>
-          </div>
-          <div class="card-body px-lg-5 py-lg-5">
-            <form role="form" #register = "ngForm" (ngSubmit) = "onsub(register.value)">
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><i class="fa fa-user-circle"></i></span>
-                  </div>
-                  <input class="form-control" style="color: black;" name="name" id="name" [(ngModel)]="name" placeholder="Name" type="text">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><i class="fa fa-phone"></i></span>
-                  </div>
-                  <input class="form-control" name="mobile" id="mobile" [(ngModel)]="mobile" style="color: black;" placeholder="Mobile" type="text">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><i class="fa fa-envelope"></i></span>
-                  </div>
-                  <input class="form-control" name="email" id="email" [(ngModel)]="email" placeholder="Email" type="email" style="color: black;">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><i class="fa fa-university"></i></span>
-                  </div>
-                  <input class="form-control" name="company_name" id="company_name" [(ngModel)]="company_name" placeholder="company" type="text" style="color: black;">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-primary"><i class="fa fa-user-o"></i></span>
-                  </div>
-                  <input class="form-control" name="referred_by" id="referred_by" [(ngModel)]="referred_by" placeholder="Referred By" type="text" style="color: black;">
-                </div>
-              </div>
-              <div class="text-center">
-                <button class="btn btn-primary">Register</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Register Account</h4>
+	<form #regform="ngForm" (ngSubmit)="onsub(regform.value)">
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="name" class="form-control" [(ngModel)]="name" placeholder="Full name" type="text">
+    </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		  </div>
+    	<input name="mobile" class="form-control" [(ngModel)]="mobile" placeholder="Phone number" type="text">
     </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-location-arrow"></i> </span>
+		  </div>
+        <input name="completeAddress" class="form-control" [(ngModel)]="completeAddress" placeholder="Address" type="text">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-thumb-tack"></i> </span>
+		  </div>
+        <input name="lat" class="form-control" [(ngModel)]="lat" placeholder="Latitude" type="text">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-thumb-tack"></i> </span>
+		  </div>
+        <input name="long" class="form-control" [(ngModel)]="long" placeholder="Longitude" type="text">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-line-chart"></i> </span>
+		  </div>
+        <input name="landSizeOwned" class="form-control" [(ngModel)]="landSizeOwned" placeholder="Land size" type="text">
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+		  </div>
+        <select 
+          class="form-control"
+          id="State"
+          [(ngModel)]="State">
+          <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
+        </select>
+    </div>
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+		  </div>
+        <select 
+          placeholder="City"
+          class="form-control"
+          id="City"
+          [(ngModel)]="City">
+          <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
+        </select>
+    </div>
+                                     
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Register </button>
+    </div>                                                              
+</form>
+</article>
+</div>  -->
+
+<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-danger shadow border-0">
+        <div class="card-header bg-primary pb-0">
+          <h3 align="center">register Account</h3>
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+          <form role="form" #register = "ngForm" (ngSubmit)="onsub(register.value)">
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-user-circle"></i></span>
+                </div> -->
+                <input class="form-control" style="color: black;" name="name" id="name" [(ngModel)]="name" placeholder="Name" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-phone"></i></span>
+                </div> -->
+                <input class="form-control" name="mobile" id="mobile" [(ngModel)]="mobile" style="color: black;" placeholder="Mobile" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-location-arrow"></i></span>
+                </div> -->
+                <input class="form-control" name="completeAddress" id="completeAddress" [(ngModel)]="completeAddress" style="color: black;" placeholder="Address" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-thumb-tack"></i></span>
+                </div> -->
+                <input class="form-control" name="lat" id="lat" [(ngModel)]="lat" style="color: black;" placeholder="Latitude" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-thumb-tack"></i></span>
+                </div> -->
+                <input class="form-control" name="long" id="long" [(ngModel)]="long" style="color: black;" placeholder="Longitude" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-tasks"></i></span>
+                </div> -->
+                <input class="form-control" name="landSizeOwned" id="landSizeOwned" [(ngModel)]="landSizeOwned" style="color: black;" placeholder="Land Size" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <!-- <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-map-marker"></i></span>
+                </div> -->
+                <select 
+                  class="form-control"
+                  id="State"
+                  [(ngModel)]="State" name="State">
+                  <option value="" disabled selected> Please select State</option>
+                  <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary"><i class="fa fa-map-marker"></i></span>
+                </div>
+                <select 
+                  class="form-control"
+                  id="City"
+                  [(ngModel)]="City" name="City">
+                  <option value="" disabled selected> Please select City</option>
+                  <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   </div>
-  
+</div>
+</div>

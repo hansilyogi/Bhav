@@ -1,0 +1,83 @@
+<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
+                        <h2 style="color: lightseagreen;"><strong>Add City</strong></h2>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="panel-body">
+                        <div class="xs-mt-10 xs-mb-10">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form class="form-horizontal" #cityform="ngForm" (ngSubmit)="onsubmitt(cityform.value)">
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="State"><b>STATE</b></label>
+                                                <div class="col-sm-9">
+                                                    <select 
+                                                    class="form-control"
+                                                    id="State"
+                                                    [(ngModel)]="State" name="State">
+                                                    <option value="" disabled selected> Please select State</option>
+                                                    <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="City"><b>CITY</b></label>
+                                                <div class="col-sm-9">
+                                                    <input id="City" name="City" [(ngModel)]="City" class="form-control input-pill" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button class="btn btn-danger" type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--5">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">CITY DETAILS</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>
+                                State
+                                </th>
+                                <th>
+                                City
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor='let row of li'>
+                                <td>{{ row.State.State }}</td>
+                                <td>{{ row.City }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

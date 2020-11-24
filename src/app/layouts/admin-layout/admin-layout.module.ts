@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
-import { DashboardComponent }       from '../../pages/dashboard/dashboard.component';
-import { UserComponent }            from '../../pages/user/user.component';
-import { TableComponent }           from '../../pages/table/table.component';
-import { FormsComponent }           from '../../pages/forms/forms.component';
-import { RegisterComponent}         from '../../pages/register/register.component';
-import { LoginComponent }           from '../../pages/login/login.component';
-import { NewsComponent }            from '../../pages/news/news.component';
-import { CategoryComponent }        from '../../pages/category/category.component';
-import { OffersComponent }          from '../../pages/offers/offers.component';
-import { BannerComponent }          from '../../pages/banner/banner.component';
-import { EventsComponent }          from '../../pages/events/events.component';
+import { DashboardComponent }         from '../../pages/dashboard/dashboard.component';
+import { RegisterComponent}           from '../../pages/register/register.component';
+import { BannerComponent }            from '../../pages/banner/banner.component';
+import { CityComponent }              from '../../pages/city/city.component';
+import { StateComponent }              from '../../pages/state/state.component';
+import { TableComponent }              from '../../pages/table/table.component';
+import { MarketComponent }             from '../../pages/market/market.component';
+import { LoginComponent }              from'../../pages/login/login.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,21 +23,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RichTextEditorAllModule
   ],
   declarations: [
     DashboardComponent,
-    UserComponent,
-    TableComponent,
-    FormsComponent,
-    LoginComponent,
     RegisterComponent,
-    NewsComponent,
-    CategoryComponent,
-    OffersComponent,
     BannerComponent,
-    EventsComponent,
+    CityComponent,
+    StateComponent,
+    MarketComponent,
+    LoginComponent,
+    TableComponent,
   ]
 })
 
