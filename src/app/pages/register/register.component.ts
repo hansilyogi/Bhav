@@ -21,8 +21,8 @@ export class RegisterComponent implements OnInit {
   long;
   completeAddress;
   landSizeOwned;
-  State;
-  City;
+  state;
+  city;
 
   constructor(private httpClient : HttpClient,private router: Router, private formbuilder : FormBuilder) {}
   
