@@ -64,7 +64,7 @@ export class BannerComponent implements OnInit{
       this.httpClient.post('https://bhav003.herokuapp.com/api/product/addProduct',fd)
       .subscribe(Response => {
         console.log(Response);
-        // location.reload();
+        location.reload();
       })
     }
 

@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(Response => {
       console.log(Response);
       alert("Registration successfull!!");
-      // location.reload();
+      location.reload();
     })
   }
 }

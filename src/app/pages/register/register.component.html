@@ -1,178 +1,238 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
-<div class="container">
-
-
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Register Account</h4>
-	<form #regform="ngForm" (ngSubmit)="onsub(regform.value)">
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="name" class="form-control" [(ngModel)]="name" placeholder="Full name" type="text">
-    </div> 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		  </div>
-    	<input name="mobile" class="form-control" [(ngModel)]="mobile" placeholder="Phone number" type="text">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-location-arrow"></i> </span>
-		  </div>
-        <input name="completeAddress" class="form-control" [(ngModel)]="completeAddress" placeholder="Address" type="text">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-thumb-tack"></i> </span>
-		  </div>
-        <input name="lat" class="form-control" [(ngModel)]="lat" placeholder="Latitude" type="text">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-thumb-tack"></i> </span>
-		  </div>
-        <input name="long" class="form-control" [(ngModel)]="long" placeholder="Longitude" type="text">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-line-chart"></i> </span>
-		  </div>
-        <input name="landSizeOwned" class="form-control" [(ngModel)]="landSizeOwned" placeholder="Land size" type="text">
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
-		  </div>
-        <select 
-          class="form-control"
-          id="State"
-          [(ngModel)]="State">
-          <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
-        </select>
-    </div>
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
-		  </div>
-        <select 
-          placeholder="City"
-          class="form-control"
-          id="City"
-          [(ngModel)]="City">
-          <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
-        </select>
-    </div>
-                                     
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Register </button>
-    </div>                                                              
-</form>
-</article>
-</div>  -->
-
-<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
-<div class="container mt--8 pb-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8">
-      <div class="card bg-danger shadow border-0">
-        <div class="card-header bg-primary pb-0">
-          <h3 align="center">register Account</h3>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tour Booking Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      line-height: 50px;
+      font-size: 60px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 15px 0 #3263cd; 
+      }
+      .banner {
+      position: relative;
+      height: 260px;
+      background-image: url("assets/img/bg-01.jpg");
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.4); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #3263cd;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 5px 0 #3263cd;
+      color: #3263cd;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 28px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio, label.checkbox {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      label.radio:before, label.checkbox:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      label.checkbox:before{ border-radius: 5px}
+      input[type=radio]:checked + label:before, label.radio:hover:before,
+      input[type=checkbox]:checked + label:before, label.chekbox:hover:before {
+      border: 2px solid #3263cd;
+      }
+      label.radio:after, label.checkbox:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid #3263cd;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after, input[type=checkbox]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background: #3263cd;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #5b82d7;
+      }
+      /* @media (min-width: 568px) {
+      .name-item, {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content  space-between;
+      }
+      .name-item input, {
+      width: calc(50% - 20px);
+      }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form #register = "ngForm" (ngSubmit)="onsub(register.value)">
+        <div class="banner">
+          <h1>Farmer Regitration Form</h1>
         </div>
-        <div class="card-body px-lg-5 py-lg-5">
-          <form role="form" #register = "ngForm" (ngSubmit)="onsub(register.value)">
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-user-circle"></i></span>
-                </div> -->
-                <input class="form-control" style="color: black;" name="name" id="name" [(ngModel)]="name" placeholder="Name" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-phone"></i></span>
-                </div> -->
-                <input class="form-control" name="mobile" id="mobile" [(ngModel)]="mobile" style="color: black;" placeholder="Mobile" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-location-arrow"></i></span>
-                </div> -->
-                <input class="form-control" name="completeAddress" id="completeAddress" [(ngModel)]="completeAddress" style="color: black;" placeholder="Address" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-thumb-tack"></i></span>
-                </div> -->
-                <input class="form-control" name="lat" id="lat" [(ngModel)]="lat" style="color: black;" placeholder="Latitude" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-thumb-tack"></i></span>
-                </div> -->
-                <input class="form-control" name="long" id="long" [(ngModel)]="long" style="color: black;" placeholder="Longitude" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-tasks"></i></span>
-                </div> -->
-                <input class="form-control" name="landSizeOwned" id="landSizeOwned" [(ngModel)]="landSizeOwned" style="color: black;" placeholder="Land Size" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <!-- <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-map-marker"></i></span>
-                </div> -->
-                <select 
-                  class="form-control"
-                  id="State"
-                  [(ngModel)]="State" name="State">
-                  <option value="" disabled selected> Please select State</option>
-                  <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text bg-primary"><i class="fa fa-map-marker"></i></span>
-                </div>
-                <select 
-                  class="form-control"
-                  id="City"
-                  [(ngModel)]="City" name="City">
-                  <option value="" disabled selected> Please select City</option>
-                  <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary">Register</button>
-            </div>
-          </form>
+        <div class="item">
+          <h6>Name</h6>
+          <div class="name-item">
+            <input type="text" name="name" [(ngModel)]="name" placeholder="Full Name" />
+          </div>
         </div>
-      </div>
-    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-  </div>
-</div>
-</div>
+        <div class="item">
+          <h6>Mobile</h6>
+          <input type="text" name="mobile" [(ngModel)]="mobile"/>
+        </div>
+        <div class="item">
+          <h6>Latitude</h6>
+          <input type="text" name="lat" [(ngModel)]="lat" placeholder="Latitude"/>
+        </div>
+        <div class="item">
+          <h6>Longitude</h6>
+          <input type="text" name="long" [(ngModel)]="long" placeholder="Longitude"/>
+        </div>
+        <div class="item">
+          <h6>Address</h6>
+          <input type="text" name="completeAddress" [(ngModel)]="completeAddress" placeholder="Address"/>
+        </div>
+        <div class="item">
+          <h6>Land Size Owned</h6>
+          <input type="text" name="landSizeOwned" [(ngModel)]="landSizeOwned" placeholder="Land Size"/>
+        </div>
+        <div class="item">
+          <h6>State</h6>
+          <select 
+            class="form-control"
+            id="state"
+            [(ngModel)]="state" name="state">
+            <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
+          </select>
+        </div>
+        <div class="item">
+          <h6>City</h6>
+          <select 
+            class="form-control"
+            id="city"
+            [(ngModel)]="city" name="city">
+            <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
+          </select>
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/">Send</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
