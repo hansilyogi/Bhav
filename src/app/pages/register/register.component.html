@@ -37,7 +37,7 @@
       padding: 20px;
       border-radius: 6px;
       background: #fff;
-      box-shadow: 0 0 15px 0 #3263cd; 
+      box-shadow: 0 0 15px 0 #F67A06; 
       }
       .banner {
       position: relative;
@@ -78,12 +78,12 @@
       padding: 5px;
       }
       .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-      color:  #3263cd;
+      color:  #F67A06;
       }
       .item input:hover, .item select:hover, .item textarea:hover {
       border: 1px solid transparent;
-      box-shadow: 0 0 5px 0 #3263cd;
-      color: #3263cd;
+      box-shadow: 0 0 5px 0 #F67A06;
+      color: #F67A06;
       }
       .item {
       position: relative;
@@ -159,13 +159,13 @@
       padding: 10px;
       border: none;
       border-radius: 5px; 
-      background: #3263cd;
+      background: #c90808;
       font-size: 16px;
       color: #fff;
       cursor: pointer;
       }
       button:hover {
-      background: #5b82d7;
+      background: #F67A06;
       }
       /* @media (min-width: 568px) {
       .name-item, {
@@ -181,56 +181,86 @@
   </head>
   <body>
     <div class="testbox">
-      <form #register = "ngForm" (ngSubmit)="onsub(register.value)">
+      <form #register = "ngForm" (ngSubmit)="onsub(register.value)"
+          autocomplete="false" novalidate>
         <div class="banner">
           <h1>Farmer Regitration Form</h1>
         </div>
         <div class="item">
-          <h6>Name</h6>
+          <h6>Full Name</h6>
           <div class="name-item">
-            <input type="text" name="name" [(ngModel)]="name" placeholder="Full Name" />
+            <input type="text" name="name" [(ngModel)]="name" #name1="ngModel" required/>
+            <div *ngIf="name1.invalid && !name1.required && (name1.dirty || name1.touched)"
+                class="alert alert-danger">
+                <div *ngIf="name1.errors.required">
+                  Name is required.
+                </div>
+            </div>
           </div>
         </div>
         <div class="item">
           <h6>Mobile</h6>
-          <input type="text" name="mobile" [(ngModel)]="mobile"/>
-        </div>
-        <div class="item">
-          <h6>Latitude</h6>
-          <input type="text" name="lat" [(ngModel)]="lat" placeholder="Latitude"/>
-        </div>
-        <div class="item">
-          <h6>Longitude</h6>
-          <input type="text" name="long" [(ngModel)]="long" placeholder="Longitude"/>
+          <input type="text" name="mobile" [(ngModel)]="mobile" #mob ="ngModel" required/>
+          <div *ngIf="mob.invalid && !mob.required && (mob.dirty || mob.touched)"
+                class="alert alert-danger">
+                <div *ngIf="mob.errors.required">
+                  Mobile is required.
+                </div>
+            </div>
         </div>
         <div class="item">
           <h6>Address</h6>
-          <input type="text" name="completeAddress" [(ngModel)]="completeAddress" placeholder="Address"/>
+          <textarea id="completeAddress" name="completeAddress" #add="ngModel" [(ngModel)]="completeAddress" class="form-control input-pill" type="text" row='2' col="2" required></textarea>
+          <div *ngIf="add.invalid && !add.required && (add.dirty || add.touched)"
+                class="alert alert-danger">
+                <div *ngIf="add.errors.required">
+                  Address is required.
+                </div>
+          </div>
+          <!-- <input type="text" name="completeAddress" [(ngModel)]="completeAddress" placeholder="Address"/> -->
         </div>
         <div class="item">
           <h6>Land Size Owned</h6>
-          <input type="text" name="landSizeOwned" [(ngModel)]="landSizeOwned" placeholder="Land Size"/>
+          <input type="text" name="landSizeOwned" #land="ngModel" [(ngModel)]="landSizeOwned" placeholder="Land Size in Acre" required/>
+          <div *ngIf="land.invalid && !land.required && (land.dirty || land.touched)"
+                class="alert alert-danger">
+                <div *ngIf="land.errors.required">
+                  Land Size is required.
+                </div>
+            </div>
         </div>
         <div class="item">
           <h6>State</h6>
           <select 
             class="form-control"
             id="state"
-            [(ngModel)]="state" name="state">
+            [(ngModel)]="state" name="state" #state1="ngModel" required>
             <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
           </select>
+          <div *ngIf="state1.invalid && !state1.required && (state1.dirty || state1.touched)"
+                class="alert alert-danger">
+                <div *ngIf="state1.errors.required">
+                  State is required.
+                </div>
+          </div>
         </div>
         <div class="item">
           <h6>City</h6>
           <select 
             class="form-control"
             id="city"
-            [(ngModel)]="city" name="city">
+            [(ngModel)]="city" name="city" #city1="ngModel" required>
             <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
           </select>
+          <div *ngIf="city1.invalid && !city1.required && (city1.dirty || city1.touched)"
+                class="alert alert-danger">
+                <div *ngIf="city1.errors.required">
+                  State is required.
+                </div>
+          </div>
         </div>
         <div class="btn-block">
-          <button type="submit" href="/">Send</button>
+          <button type="submit" >Submit</button>
         </div>
       </form>
     </div>

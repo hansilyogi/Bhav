@@ -37,7 +37,7 @@
       padding: 20px;
       border-radius: 6px;
       background: #fff;
-      box-shadow: 0 0 15px 0 #a82877; 
+      box-shadow: 0 0 15px 0 #F67A06; 
       }
       .banner {
       position: relative;
@@ -78,12 +78,12 @@
       padding: 5px;
       }
       .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-      color:  #3263cd;
+      color:  #F67A06;
       }
       .item input:hover, .item select:hover, .item textarea:hover {
       border: 1px solid transparent;
-      box-shadow: 0 0 5px 0 #3263cd;
-      color: #3263cd;
+      box-shadow: 0 0 5px 0 #F67A06;
+      color: #F67A06;
       }
       .item {
       position: relative;
@@ -159,13 +159,13 @@
       padding: 10px;
       border: none;
       border-radius: 5px; 
-      background: #3263cd;
+      background: #c90808;
       font-size: 16px;
       color: #fff;
       cursor: pointer;
       }
       button:hover {
-      background: #5b82d7;
+      background: #F67A06;
       }
       /* @media (min-width: 568px) {
       .name-item, {
@@ -189,18 +189,6 @@
             <h6>MAndi Name</h6>
             <div class="name-item">
                 <input id="MandiName" name="MandiName" [(ngModel)]="MandiName" class="form-control input-pill" type="text">
-            </div>
-        </div>
-        <div class="item">
-            <h6>Product</h6>
-            <div class="name-item">
-                <select 
-                    class="form-control"
-                    id="Product"
-                    [(ngModel)]="Product" name="Product">
-                    <option value="" disabled selected> Please select Category</option>
-                    <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
-                </select>
             </div>
         </div>
         <div class="item">
@@ -240,6 +228,38 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
+                    <h3 class="mb-0">PRODUCT DETAILS</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>
+                                    Product Name
+                                </th>
+                                <!-- <th>
+                                    Select Item
+                                </th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor='let row of li_product'>
+                                <td>{{ row.productName }}</td>
+                                <!-- <td><input type="checkbox"></td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid mt--5">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
                     <h3 class="mb-0">MANDI DETAILS</h3>
                 </div>
                 <div class="table-responsive">
@@ -248,9 +268,6 @@
                             <tr>
                                 <th>
                                     Mandi Name
-                                </th>
-                                <th>
-                                    Product
                                 </th>
                                 <th>
                                 State
@@ -263,7 +280,6 @@
                         <tbody class="text-center">
                             <tr *ngFor='let row of li'>
                                 <td>{{ row.MandiName }}</td>
-                                <td>{{ row.Product.productName }}</td>
                                 <td>{{ row.State.State }}</td>
                                 <td>{{ row.City.City }}</td>
                             </tr>
@@ -273,4 +289,17 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<!-- <div class="item">
+    <h6>Product</h6>
+    <div class="name-item">
+        <select 
+            class="form-control"
+            id="Product"
+            [(ngModel)]="Product" name="Product">
+            <option value="" disabled selected> Please select Category</option>
+            <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
+        </select>
+    </div>
+</div> -->

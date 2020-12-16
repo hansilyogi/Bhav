@@ -12,10 +12,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',           title: 'Dashboard',           icon:'ni-tv-2 text-primary',          class: '' },
     { path: '/register',            title: 'Register',            icon:'ni-key-25 text-info',           class: '' },
     { path: '/banner',              title: 'Products',             icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/market',               title: 'Mandi',               icon:'ni-circle-08 text-pink',        class: '' },
     { path: '/city',                title: 'City',                icon:'ni-circle-08 text-pink',        class: '' },
     { path: '/state',               title: 'State',               icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/table',               title: 'Customers',               icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/market',               title: 'Market',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/table',               title: 'Farmers',               icon:'ni-circle-08 text-pink',        class: '' },
     
 ];
 

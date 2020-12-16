@@ -2,7 +2,7 @@
   <div class="logo">
     <a href="#" class="simple-text logo-normal">
       <div class="logo-image-small">
-        <img src="assets/img/bhav.png" style="height: 200px;">
+        <img src="assets/img/bhav.png" style="height: 130px;padding-left: 8px; border-radius:10px">
       </div>
     </a>
   </div>
@@ -10,7 +10,7 @@
         <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
             <a [routerLink]="[menuItem.path]">
                 <i class="nc-icon {{menuItem.icon}}"></i>
-                <h6>{{menuItem.title}}</h6>
+                <h6 style="color: black;">{{menuItem.title}}</h6>
             </a>
         </li>
     </ul>
