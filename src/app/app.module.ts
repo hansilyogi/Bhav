@@ -9,6 +9,7 @@ import { NavbarModule} from './shared/navbar/navbar.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
@@ -29,6 +30,7 @@ import { MomentModule } from 'ngx-moment';
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
+    NgMultiSelectDropDownModule.forRoot(),
     FooterModule,
     RichTextEditorAllModule
   ],

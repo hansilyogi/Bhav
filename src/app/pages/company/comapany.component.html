@@ -181,14 +181,14 @@
   </head>
   <body>
     <div class="testbox">
-      <form #market="ngForm" (ngSubmit)="onsubmitt(market.value)">
+      <form #company="ngForm" (ngSubmit)="oncomp(company.value)">
         <div class="banner">
-          <h1>Add Mandi</h1>
+          <h1>Add Company</h1>
         </div>
         <div class="item">
-            <h6>MAndi Name</h6>
+            <h6>Company Name</h6>
             <div class="name-item">
-                <input id="MandiName" name="MandiName" [(ngModel)]="MandiName" class="form-control input-pill" type="text">
+                <input id="companyName" name="companyName" [(ngModel)]="companyName" class="form-control input-pill" type="text">
             </div>
         </div>
         <div class="item">
@@ -196,37 +196,31 @@
             <div class="name-item">
                 <select 
                     class="form-control"
-                    id="State"
-                    [(ngModel)]="State" name="State">
+                    id="stateId"
+                    [(ngModel)]="stateId" name="stateId">
                     <option value="" disabled selected> Please select State</option>
                     <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
                 </select>
             </div>
         </div>
-        <!-- <div class="item">
-            <h6>Product</h6>
+        <div class="item">
+            <h6>Latitude</h6>
             <div class="name-item">
-                <ng-multiselect-dropdown
-                    [placeholder]="'custom placeholder'"
-                    [data]="li_product"
-                    [(ngModel)]="selectedItems"
-                    [settings]="dropdownSettings"
-                    (onSelect)="onItemSelect($event)"
-                >
-                </ng-multiselect-dropdown>
+                <input id="lat" name="lat" [(ngModel)]="lat" class="form-control input-pill" type="text">
             </div>
-        </div> -->
-        <!-- <div class="item">
-            <h6>Product</h6>
+        </div>
+        <div class="item">
+            <h6>Longitude</h6>
             <div class="name-item">
-                <select multiple
-                    class="form-control"
-                    id="productId"
-                    [(ngModel)]="productId" name="productId" >
-                    <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
-                </select>
+                <input id="long" name="long" [(ngModel)]="long" class="form-control input-pill" type="text">
             </div>
-        </div> -->
+        </div>
+        <div class="item">
+            <h6>Complete Address</h6>
+            <div class="name-item">
+                <input id="completeAddress" name="completeAddress" [(ngModel)]="completeAddress" class="form-control input-pill" type="text">
+            </div>
+        </div>
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
         </div>
@@ -235,29 +229,29 @@
   </body>
 </html>
 
-<!-- <div class="container-fluid mt--5">
+<div class="container-fluid mt--5">
     <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">PRODUCT DETAILS</h3>
+                    <h3 class="mb-0">COMPANY DETAILS</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-dark text-center">
                             <tr>
                                 <th>
-                                    Product Name
+                                    Company Name
                                 </th>
                                 <th>
-                                    Select Item
+                                    State
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
-                            <tr *ngFor='let row of li_product'>
-                                <td>{{ row.productName }}</td>
-                                <td><button type="button" id="btn-product" (click)="add()">{{ data }}</button></td>
+                            <tr *ngFor='let row of li'>
+                                <td>{{ row[0].companyName }}</td>
+                                <td>{{ row[0].stateId.State }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -265,7 +259,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <!-- <div class="container-fluid mt--5">
     <div class="row">
@@ -300,18 +294,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div> -->
-
-<!-- <div class="item">
-    <h6>Product</h6>
-    <div class="name-item">
-        <select 
-            class="form-control"
-            id="Product"
-            [(ngModel)]="Product" name="Product">
-            <option value="" disabled selected> Please select Category</option>
-            <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
-        </select>
     </div>
 </div> -->

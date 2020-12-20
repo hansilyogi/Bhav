@@ -13,9 +13,14 @@ export const ROUTES: RouteInfo[] = [
     { path: '/register',            title: 'Register',            icon:'ni-key-25 text-info',           class: '' },
     { path: '/banner',              title: 'Products',             icon:'ni-circle-08 text-pink',        class: '' },
     { path: '/market',               title: 'Mandi',               icon:'ni-circle-08 text-pink',        class: '' },
-    { path: '/city',                title: 'City',                icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/updatemandi',               title: 'Add Mandi Product',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/company',               title: 'Company',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/companyproduct',      title: 'Add Company Product',               icon:'ni-circle-08 text-pink',        class: '' },
+    // { path: '/city',                title: 'City',                icon:'ni-circle-08 text-pink',        class: '' },
     { path: '/state',               title: 'State',               icon:'ni-circle-08 text-pink',        class: '' },
     { path: '/table',               title: 'Farmers',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/updateprice',         title: 'Update Price',               icon:'ni-circle-08 text-pink',        class: '' },
+    { path: '/filterdata',         title: 'Filter Data',               icon:'ni-circle-08 text-pink',        class: '' },
     
 ];
 

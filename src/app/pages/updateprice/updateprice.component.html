@@ -181,14 +181,20 @@
   </head>
   <body>
     <div class="testbox">
-      <form #market="ngForm" (ngSubmit)="onsubmitt(market.value)">
+      <form #update="ngForm" (ngSubmit)="onsubmitt(update.value)">
         <div class="banner">
-          <h1>Add Mandi</h1>
+          <h1>Update Price</h1>
         </div>
         <div class="item">
-            <h6>MAndi Name</h6>
+            <h6>Mandi</h6>
             <div class="name-item">
-                <input id="MandiName" name="MandiName" [(ngModel)]="MandiName" class="form-control input-pill" type="text">
+                <select 
+                    class="form-control"
+                    id="mandiId"
+                    [(ngModel)]="mandiId" name="mandiId">
+                    <option value="" disabled selected> Please select mandi</option>
+                    <option *ngFor="let x of li_mandi" value="{{x._id}}">{{x.MandiName}}</option>
+                </select>
             </div>
         </div>
         <div class="item">
@@ -196,37 +202,37 @@
             <div class="name-item">
                 <select 
                     class="form-control"
-                    id="State"
-                    [(ngModel)]="State" name="State">
+                    id="stateId"
+                    [(ngModel)]="stateId" name="stateId">
                     <option value="" disabled selected> Please select State</option>
                     <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
                 </select>
             </div>
         </div>
-        <!-- <div class="item">
+        <div class="item">
             <h6>Product</h6>
             <div class="name-item">
-                <ng-multiselect-dropdown
-                    [placeholder]="'custom placeholder'"
-                    [data]="li_product"
-                    [(ngModel)]="selectedItems"
-                    [settings]="dropdownSettings"
-                    (onSelect)="onItemSelect($event)"
-                >
-                </ng-multiselect-dropdown>
-            </div>
-        </div> -->
-        <!-- <div class="item">
-            <h6>Product</h6>
-            <div class="name-item">
-                <select multiple
+                <select 
                     class="form-control"
                     id="productId"
-                    [(ngModel)]="productId" name="productId" >
+                    [(ngModel)]="productId" name="productId">
+                    <option value="" disabled selected> Please select product</option>
                     <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
                 </select>
             </div>
-        </div> -->
+        </div>
+        <div class="item">
+            <h6>Lowest Price</h6>
+            <div class="name-item">
+                <input id="lowestPrice" name="lowestPrice" [(ngModel)]="lowestPrice" class="form-control input-pill" type="text">
+            </div>
+        </div>
+        <div class="item">
+            <h6>Highest Price</h6>
+            <div class="name-item">
+                <input id="highestPrice" name="highestPrice" [(ngModel)]="highestPrice" class="form-control input-pill" type="text">
+            </div>
+        </div>
         <div class="btn-block">
           <button type="submit" href="/">Submit</button>
         </div>
@@ -300,18 +306,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div> -->
-
-<!-- <div class="item">
-    <h6>Product</h6>
-    <div class="name-item">
-        <select 
-            class="form-control"
-            id="Product"
-            [(ngModel)]="Product" name="Product">
-            <option value="" disabled selected> Please select Category</option>
-            <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
-        </select>
     </div>
 </div> -->

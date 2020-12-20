@@ -2,40 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
-  selector: 'app-market',
-  templateUrl: 'market.component.html',
+  selector: 'app-filterdata',
+  templateUrl: 'filterdata.component.html',
   // styleUrls: ['city.component.css']
 })
-export class MarketComponent implements OnInit {
+export class FilterdataComponent implements OnInit {
 
   selectedFile:File = null;
   form1:FormGroup;
   li;
-  li_city;
   li_state;
-  li_product;
-  MandiName;
-  productId = [];
+  mandiId;
   State;
-  selectedItems = [];
-  dropdownSettings = {};
+  li_mandi;
 
   constructor(private httpClient : HttpClient,private router: Router, private formbuilder : FormBuilder) {}
 
-  ngOnInit() {
+  ngOnInit() { 
+    
     this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/getAllMandi',null)
     .subscribe((Response:any)=> {
-      this.li = Response.Data;
-      console.log(this.li);
-    });
-
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getCity',null)
-    .subscribe((Response:any)=> {
-      this.li_city = Response.Data;
-      // console.log(this.li_city);
+      this.li_mandi = Response.Data;
+    //   console.log(this.li_mandi);
     });
 
     this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
@@ -44,21 +34,10 @@ export class MarketComponent implements OnInit {
       // console.log(this.li_state);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/product/getProducts',null)
-    .subscribe((Response:any)=> {
-      this.li_product = Response.Data;
-      console.log(this.li_product);
-    });
-
-    this.form1 = this.formbuilder.group({ 
+    this.form1 = this.formbuilder.group({
+      
   });
   }
-
-  // onItemSelect(item) {
-  //   console.log(item);
-  //   this.Product.push(item);
-  // }
-
 
   // onsubmitt()  {
   //   const fd = new FormData;
@@ -73,18 +52,28 @@ export class MarketComponent implements OnInit {
   //   });
   // }
 
-  onsubmitt(person:Person){
-    console.log(person);
-    this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/addMandi',person)
-    .subscribe(Response => {
+  onsubmitt(id){
+    console.log(id);
+    var y = { "State" : id};
+    this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/getFilterMandi',y)
+    .subscribe((Response :any) => {
       console.log(Response);
-      location.reload();
+      this.li = Response.Data;
+      console.log(this.li)
+    //   location.reload();
     });
   }
 
-}
-export interface Person {
-  MandiName:string;
-  productId : object;
-  State : object;
+  onsubmitmandi(id){
+    console.log(id);
+    var x = { "mandiId" : id};
+    this.httpClient.post('https://bhav003.herokuapp.com/api/product/getMandiProducts',x)
+    .subscribe((Response :any) => {
+      console.log(Response);
+      this.li = Response.Data;
+      console.log(this.li)
+    //   location.reload();
+    });
+  }
+
 }

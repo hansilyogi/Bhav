@@ -23,6 +23,9 @@
                   Name
                 </th>
                 <th>
+                  Category
+                </th>
+                <th>
                   Mobile
                 </th>
                 <th>
@@ -31,18 +34,15 @@
                 <th>
                   State
                 </th>
-                <th>
-                  City
-                </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let e of lis">
                 <td>{{ e.name }}</td>
+                <td>{{ e.category }}</td>
                 <td>{{ e.mobile }}</td>
                 <td>{{ e.landSizeOwned }}</td>
                 <td>{{ e.state.State }}</td>
-                <td>{{ e.city.City }}</td>
               </tr>
             </tbody>
           </table>
