@@ -23,7 +23,7 @@ export class TableComponent implements OnInit{
     constructor(private httpClient : HttpClient,private router: Router) {}
   
     ngOnInit() {
-      this.httpClient.post('https://bhav003.herokuapp.com/api/customer/getUsers',null) 
+      this.httpClient.post('http://13.234.119.95/api/customer/getUsers',null) 
       .subscribe(Response => { 
         this.li=Response;
         console.log(this.li);

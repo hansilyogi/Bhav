@@ -22,7 +22,7 @@ export class StateComponent implements OnInit {
       State:['']
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getState',null)
     .subscribe((Response:any)=> {
       // console.log(Response);
       this.li = Response.Data;
@@ -33,7 +33,7 @@ export class StateComponent implements OnInit {
   // submit_state() {
   //   const fd = new FormData;
   //   fd.append("State",this.stateform.get("State").value);
-  //     this.httpClient.post('https://bhav003.herokuapp.com/api/admin/addState',fd)
+  //     this.httpClient.post('http://13.234.119.95/api/admin/addState',fd)
   //   .subscribe(Response => {
   //     location.reload();
   //     console.log(Response);
@@ -41,7 +41,7 @@ export class StateComponent implements OnInit {
   // }
 
   submit_state(person:Person){
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/addState',person)
+    this.httpClient.post('http://13.234.119.95/api/admin/addState',person)
     .subscribe(Response => {
       console.log(Response);
       location.reload();

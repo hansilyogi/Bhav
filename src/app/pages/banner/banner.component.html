@@ -191,7 +191,7 @@
               <input type="text" name="productName" formControlName="productName" placeholder="Product Name" />
             </div>
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <h6> Yesterday's Price</h6>
             <div class="name-item">
               <input type="number" name="yesterDayPrice" formControlName="yesterDayPrice" placeholder="Yesterday Price" />
@@ -202,7 +202,7 @@
             <div class="name-item">
               <input type="number" name="toDayPrice" formControlName="toDayPrice" placeholder="Today Price" />
             </div>
-        </div>
+        </div> -->
         <div class="item">
             <h6> PRODUCT IMAGE</h6>
             <div class="col-sm-9">
@@ -240,19 +240,11 @@
                                 <th>
                                 Procuct Name
                                 </th>
-                                <th>
-                                Yesterday Price
-                                </th>
-                                <th>
-                                Today's Price
-                                </th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
                             <tr *ngFor='let row of li'>
                                 <td>{{ row.productName }}</td>
-                                <td>{{ row.yesterDayPrice }}</td>
-                                <td>{{ row.toDayPrice }}</td>
                             </tr>
                         </tbody>
                     </table>

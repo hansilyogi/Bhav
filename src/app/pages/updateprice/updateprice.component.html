@@ -181,11 +181,11 @@
   </head>
   <body>
     <div class="testbox">
-      <form #update="ngForm" (ngSubmit)="onsubmitt(update.value)">
+      <form #update="ngForm">
         <div class="banner">
           <h1>Update Price</h1>
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <h6>Mandi</h6>
             <div class="name-item">
                 <select 
@@ -196,8 +196,8 @@
                     <option *ngFor="let x of li_mandi" value="{{x._id}}">{{x.MandiName}}</option>
                 </select>
             </div>
-        </div>
-        <div class="item">
+        </div> -->
+        <!-- <div class="item">
             <h6>State</h6>
             <div class="name-item">
                 <select 
@@ -208,40 +208,40 @@
                     <option *ngFor="let x of li_state" value="{{x._id}}">{{x.State}}</option>
                 </select>
             </div>
-        </div>
+        </div> -->
         <div class="item">
             <h6>Product</h6>
             <div class="name-item">
                 <select 
                     class="form-control"
                     id="productId"
-                    [(ngModel)]="productId" name="productId">
+                    [(ngModel)]="productId" name="productId" (change)="onsubmitt(update.value)">
                     <option value="" disabled selected> Please select product</option>
                     <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
                 </select>
             </div>
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <h6>Lowest Price</h6>
             <div class="name-item">
                 <input id="lowestPrice" name="lowestPrice" [(ngModel)]="lowestPrice" class="form-control input-pill" type="text">
             </div>
-        </div>
-        <div class="item">
+        </div> -->
+        <!-- <div class="item">
             <h6>Highest Price</h6>
             <div class="name-item">
                 <input id="highestPrice" name="highestPrice" [(ngModel)]="highestPrice" class="form-control input-pill" type="text">
             </div>
-        </div>
+        </div> -->
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
+          <!-- <button type="submit" href="/">Submit</button> -->
         </div>
       </form>
     </div>
   </body>
 </html>
 
-<!-- <div class="container-fluid mt--5">
+<div class="container-fluid mt--5">
     <div class="row">
         <div class="col">
             <div class="card shadow">
@@ -253,25 +253,38 @@
                         <thead class="thead-dark text-center">
                             <tr>
                                 <th>
-                                    Product Name
+                                    Mandi
                                 </th>
                                 <th>
-                                    Select Item
+                                    State
                                 </th>
+                                <th>
+                                    Yesterday price
+                                </th>
+                                <th>
+                                    Today price
+                                </th>
+                                <!-- <th>
+                                    Action
+                                </th> -->
                             </tr>
                         </thead>
-                        <tbody class="text-center">
-                            <tr *ngFor='let row of li_product'>
-                                <td>{{ row.productName }}</td>
-                                <td><button type="button" id="btn-product" (click)="add()">{{ data }}</button></td>
+                        <tbody id="tbcontent" class="text-center">
+                            <tr style="width: 50%;" *ngFor='let row of li'>
+                                <td>{{ row.mandiId.MandiName }}</td>
+                                <td>{{ row.stateId.State }}</td>
+                                <td><input readonly type="text" [(ngModel)]="row.yesterDayHigh" style="width: 50%;">
+                                <td><input type="text" [(ngModel)]="row.highestPrice" style="width: 50%;" (change)="updateprice(row.stateId._id,row.mandiId._id,row.productId._id,row.highestPrice)">
+                                <!-- <td><button type="submit" id={{row._id}} style="background-color: green;">Submit</button></td> -->
                             </tr>
                         </tbody>
                     </table>
+                <!-- <button type="button" (click)="onsub()">Submit</button> -->
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <!-- <div class="container-fluid mt--5">
     <div class="row">

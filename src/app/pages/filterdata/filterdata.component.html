@@ -205,7 +205,7 @@
     
     <br><hr>
 
-    <div class="testbox">
+    <!-- <div class="testbox">
         <form #mandidata="ngForm" (ngSubmit)="onsubmitmandi(mandidata.value)">
             <div class="banner">
             <h1>Find By Mandi</h1>
@@ -226,7 +226,7 @@
             <button type="submit" href="/">Submit</button>
             </div>
         </form>
-    </div>
+    </div> -->
   </body>
 </html>
 
@@ -235,32 +235,28 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">STATE DETAILS</h3>
+                    <h3 class="mb-0">DETAILS</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-dark text-center">
                             <tr>
                                 <th>
-                                    Product Name
+                                    Mandi Name
                                 </th>
                                 <th>
-                                    Yesterday Price
+                                    State
                                 </th>
                                 <th>
-                                    Today Price
-                                </th>
-                                <th>
-                                    Price  Change Indicator
+                                    Product
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
                             <tr *ngFor='let row of li'>
-                                <td>{{ row.productName }}</td>
-                                <td>{{ row.yesterDayPrice }}</td>
-                                <td>{{ row.toDayPrice }}</td>
-                                <td>{{ row.priceChangeIndicator }}</td>
+                                <td>{{ row.MandiName }}</td>
+                                <td>{{ row.State.State }}</td>
+                                <td *ngFor='let crop of crop'>{{ crop.productName }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -272,7 +268,7 @@
 
 <br><hr>
 
-<div class="container-fluid mt--5">
+<!-- <div class="container-fluid mt--5">
     <div class="row">
         <div class="col">
             <div class="card shadow">
@@ -310,7 +306,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <div class="container-fluid mt--5">
     <div class="row">

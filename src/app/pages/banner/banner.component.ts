@@ -25,7 +25,7 @@ export class BannerComponent implements OnInit{
     constructor(private httpClient : HttpClient,private router: Router,private formbuilder : FormBuilder) {}
 
     ngOnInit() {
-      this.httpClient.post('https://bhav003.herokuapp.com/api/product/getProducts',null)
+      this.httpClient.post('http://13.234.119.95/api/product/getProducts',null)
     .subscribe((Response:any)=> {
       // console.log(Response);
       this.li = Response.Data;
@@ -34,9 +34,7 @@ export class BannerComponent implements OnInit{
       
       this.productform = this.formbuilder.group({
         productImage:[''],
-        toDayPrice:[''],
-        productName:[''],  
-        yesterDayPrice:['']
+        productName:['']
       });
     }
 
@@ -56,12 +54,15 @@ export class BannerComponent implements OnInit{
     // }
 
     saveproduct(){
-      const fd = new FormData;
-      fd.append('productName',this.productform.get('productName').value);
-      fd.append('toDayPrice',this.productform.get('toDayPrice').value);
-      fd.append('productImage',this.productform.get('productImage').value);
-      fd.append('yesterDayPrice',this.productform.get('yesterDayPrice').value);
-      this.httpClient.post('https://bhav003.herokuapp.com/api/product/addProduct',fd)
+      var data = {
+        "productName" : this.productform.get('productName').value,
+        "productImage" : this.productform.get('productImage').value
+      };
+
+      // const fd = new FormData;
+      // fd.append('productName',this.productform.get('productName').value);
+      // fd.append('productImage',this.productform.get('productImage').value);
+      this.httpClient.post('http://13.234.119.95/api/product/addProduct',data)
       .subscribe(Response => {
         console.log(Response);
         location.reload();
@@ -72,6 +73,4 @@ export class BannerComponent implements OnInit{
 interface Person {
   productName : string;
   productImage : FormDataEntryValue;
-  yesterDayPrice: string;
-  toDayPrice: string;
 }

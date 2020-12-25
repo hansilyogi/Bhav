@@ -27,13 +27,13 @@ export class RegisterComponent implements OnInit {
   constructor(private httpClient : HttpClient,private router: Router, private formbuilder : FormBuilder) {}
   
   ngOnInit() {
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getCity',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getCity',null)
     .subscribe((Response:any)=> {
       this.li_city = Response.Data;
       console.log(this.li_city);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getState',null)
     .subscribe((Response:any)=> {
       this.li_state = Response.Data;
       console.log(this.li_state);
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   //   fd.append('landSizeOwned',this.regform.get('landSizeOwned').value);
   //   fd.append('State',this.regform.get('State').value);
   //   fd.append('City',this.regform.get('City').value);
-  //   this.httpClient.post('https://bhav003.herokuapp.com/api/customer/register',fd)
+  //   this.httpClient.post('http://13.234.119.95/api/customer/register',fd)
   //     .subscribe(Response => {
   //       alert('registration successfull!!');
   //       // this.router.navigateByUrl('/table');
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
 
   onsub(person:Person){
     console.log(person);
-    this.httpClient.post('https://bhav003.herokuapp.com/api/customer/register',person)
+    this.httpClient.post('http://13.234.119.95/api/customer/register',person)
     .subscribe(Response => {
       console.log(Response);
       alert("Registration successfull!!");

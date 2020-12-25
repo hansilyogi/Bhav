@@ -21,7 +21,7 @@ export class LoginComponent {
   constructor(private httpClient : HttpClient,private router: Router) {}
 
   onlog(person:Person) {
-      this.httpClient.post('https://bhav003.herokuapp.com/api/admin/adminLogin',person)
+      this.httpClient.post('http://13.234.119.95/api/admin/adminLogin',person)
       .subscribe(Response => {
         console.log(Response);
         this.router.navigateByUrl('/dashboard');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 
 @Component({
   selector: 'app-updateprice',
@@ -19,34 +20,55 @@ export class UpdatepriceComponent implements OnInit {
   mandiId;
   productId;
   stateId;
-  lowestPrice : string;
-  highestPrice : string;
 
   constructor(private httpClient : HttpClient,private router: Router, private formbuilder : FormBuilder) {}
 
   ngOnInit() { 
     
-    this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/getAllMandi',null)
+    this.httpClient.post('http://13.234.119.95/api/mandi/getAllMandi',null)
     .subscribe((Response:any)=> {
       this.li_mandi = Response.Data;
-      console.log(this.li_mandi);
+      // console.log(this.li_mandi);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getState',null)
     .subscribe((Response:any)=> {
       this.li_state = Response.Data;
       // console.log(this.li_state);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/product/getProducts',null)
+    this.httpClient.post('http://13.234.119.95/api/product/getProducts',null)
     .subscribe((Response:any)=> {
       this.li_product = Response.Data;
       // console.log(this.li_product);
     });
 
+    // var pro = { "mandiId" : "5fddf5a07e446273391d34f3" };
+
     this.form1 = this.formbuilder.group({
       
   });
+  }
+
+  updateprice(id1,id2,id3,price){
+    console.log(id1);
+    console.log(id2);
+    console.log(id3);
+    console.log(price);
+    var data = {
+      "stateId" : id1,
+      "mandiId" : id2,
+      "productId" : id3,
+      "highestPrice" : price
+    };
+    this.httpClient.post('http://13.234.119.95/api/admin/addProductUpdatePrice',data)
+    .subscribe((Response:any) =>{
+      console.log(Response);
+    })
+  };
+
+  onsub(id){
+    console.log(id);
   }
 
   // onsubmitt()  {
@@ -62,19 +84,23 @@ export class UpdatepriceComponent implements OnInit {
   //   });
   // }
 
-  onsubmitt(person:Person){
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/addProductUpdatePrice',person)
-    .subscribe(Response => {
+  onsubmitt(id){
+    var pro = {"productId" : id};
+    console.log(pro.productId);
+    this.httpClient.post('http://13.234.119.95/api/admin/getCropPriceInAllMandi',pro.productId)
+    .subscribe((Response:any) => {
       console.log(Response);
-      location.reload();
+      // location.reload();
+      this.li = Response.Data;
+      console.log(this.li);
     });
   }
 
 }
 export interface Person {
-  mandiId : object;
-  stateId:object;
+  // mandiId : object;
+  // stateId:object;
   productId : object;
-  lowestPrice : string;
-  highestPrice : string;
+  // lowestPrice : string;
+  // highestPrice : string;
 }

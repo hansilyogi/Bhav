@@ -183,7 +183,7 @@
     <div class="testbox">
       <form #updatemandi="ngForm" (ngSubmit)="updatepro(updatemandi.value)">
         <div class="banner">
-          <h1>Update Price</h1>
+          <h1>Update Mandi Details</h1>
         </div>
         <div class="item">
             <h6>Mandi</h6>
@@ -204,7 +204,7 @@
                     class="form-control"
                     id="productId"
                     [(ngModel)]="productId" name="productId">
-                    <option value="" disabled selected> Please select product</option>
+                    <!-- <option value="" disabled selected> Please select product</option> -->
                     <option *ngFor="let x of li_product" value="{{x._id}}">{{x.productName}}</option>
                 </select>
             </div>

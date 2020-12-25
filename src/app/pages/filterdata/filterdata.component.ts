@@ -17,18 +17,19 @@ export class FilterdataComponent implements OnInit {
   mandiId;
   State;
   li_mandi;
+  crop;
 
   constructor(private httpClient : HttpClient,private router: Router, private formbuilder : FormBuilder) {}
 
   ngOnInit() { 
     
-    this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/getAllMandi',null)
+    this.httpClient.post('http://13.234.119.95/api/mandi/getAllMandi',null)
     .subscribe((Response:any)=> {
       this.li_mandi = Response.Data;
     //   console.log(this.li_mandi);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getState',null)
     .subscribe((Response:any)=> {
       this.li_state = Response.Data;
       // console.log(this.li_state);
@@ -45,7 +46,7 @@ export class FilterdataComponent implements OnInit {
   //   fd.append('Product',this.form1.get('Product').value);
   //   fd.append('State',this.form1.get('State').value);
   //   fd.append('City',this.form1.get('City').value);
-  //     this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/addMandi',fd)
+  //     this.httpClient.post('http://13.234.119.95/api/mandi/addMandi',fd)
   //   .subscribe(Response => {
   //     // location.reload();
   //     console.log(Response);
@@ -53,23 +54,22 @@ export class FilterdataComponent implements OnInit {
   // }
 
   onsubmitt(id){
-    console.log(id);
     var y = { "State" : id};
-    this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/getFilterMandi',y)
+    this.httpClient.post('http://13.234.119.95/api/mandi/getFilterMandi',y.State)
     .subscribe((Response :any) => {
-      console.log(Response);
       this.li = Response.Data;
-      console.log(this.li)
-    //   location.reload();
+      console.log(this.li);
+      this.crop = Response.Data[0].productId;
+      console.log(this.crop);
     });
   }
 
   onsubmitmandi(id){
     console.log(id);
     var x = { "mandiId" : id};
-    this.httpClient.post('https://bhav003.herokuapp.com/api/product/getMandiProducts',x)
+    this.httpClient.post('http://13.234.119.95/api/product/getMandiProducts',x)
     .subscribe((Response :any) => {
-      console.log(Response);
+      // console.log(Response);
       this.li = Response.Data;
       console.log(this.li)
     //   location.reload();

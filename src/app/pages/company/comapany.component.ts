@@ -24,16 +24,16 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit() {
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/admin/getState',null)
+    this.httpClient.post('http://13.234.119.95/api/admin/getState',null)
     .subscribe((Response:any)=> {
       this.li_state = Response.Data;
       // console.log(this.li_state);
     });
 
-    this.httpClient.post('https://bhav003.herokuapp.com/api/company/getComapnyList',null)
+    this.httpClient.post('http://13.234.119.95/api/company/getComapnyList',null)
     .subscribe((response: any) => {
       console.log(response);
-      this.li = response.Data;
+      this.li = response.Data[0];
       console.log(this.li);
     })
 
@@ -49,7 +49,7 @@ export class CompanyComponent implements OnInit {
   //   fd.append('Product',this.form1.get('Product').value);
   //   fd.append('State',this.form1.get('State').value);
   //   fd.append('City',this.form1.get('City').value);
-  //     this.httpClient.post('https://bhav003.herokuapp.com/api/mandi/addMandi',fd)
+  //     this.httpClient.post('http://13.234.119.95/api/mandi/addMandi',fd)
   //   .subscribe(Response => {
   //     // location.reload();
   //     console.log(Response);
@@ -58,7 +58,7 @@ export class CompanyComponent implements OnInit {
 
   oncomp(person:Person){
     console.log(person);
-    this.httpClient.post('https://bhav003.herokuapp.com/api/company/addComapny',person)
+    this.httpClient.post('http://13.234.119.95/api/company/addComapny',person)
     .subscribe(Response => {
       console.log(Response);
       location.reload();
